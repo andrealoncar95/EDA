@@ -26,4 +26,9 @@ public class ListaPelikula {
     private Iterator<Pelikula> getIteradorea() {
         return this.lista.iterator();
     }
+
+	public void pelikulaGehitu(Pelikula pelikula) {
+		this.lista.add(pelikula);
+		
+	}
 }

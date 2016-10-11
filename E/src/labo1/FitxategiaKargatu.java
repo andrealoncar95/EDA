@@ -28,7 +28,7 @@ public class FitxategiaKargatu {
         ListaPelikula.getPelikulazerrenda().PelikulakPantailaratu();
     }
  
-    public void Fitxatergia(String nomFile){
+    public void Fitxategia(String nomFile){
         try{
             int knt=0;
             Scanner entrada = new Scanner(new FileReader(nomFile));
@@ -37,13 +37,13 @@ public class FitxategiaKargatu {
             HashMap<String,Pelikula> ht=new HashMap<String,Pelikula>();
             while (entrada.hasNext()) {
                 linea = entrada.nextLine();
-                String[] datuak=linea.split("\\s+&&&\\s+");
-                Aktorea akt=new Aktorea(datuak[0]);
-                Aktorezerrenda.getAktorezerrenda().aktoreaGehitu(akt);
+                String[] datuak=linea.split("\\s+--->\\s+");
+                Pelikula pelikula=new Pelikula(datuak[0]);
+                ListaPelikula.getListaPelikula().pelikulaGehitu(pelikula);
                 knt++;
                 for(int i=1;i<datuak.length;i++){
                     if (knt % 1000 == 0){   
-                        System.out.println(knt + " aktore kargatu dira");
+                        System.out.println(knt + " pelikula kargatu dira");
                     }
                     if(ht.containsKey(datuak[i])){
                         pel=ht.get(datuak[i]);
