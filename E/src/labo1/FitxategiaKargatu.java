@@ -133,7 +133,7 @@ public class FitxategiaKargatu {
                 arrayaBukatuta.getMessage();
                 arrayaBukatuta.getStackTrace();
             }
-            Aktorezerrenda.getAktorezerrenda().aktoreaGehitu(akt);
+            ListaAktorea.getListaAktorea().aktoreaGehitu(akt);
         }
         System.out.println("Aktoreak kargatu dira\n");
         irakurriDatuak.close();
