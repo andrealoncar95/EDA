@@ -42,4 +42,17 @@ public class ListaAktorea {
     }
     public void AktoreBatenPelikulakBueltatu(Aktorea akt) {
     }
+    public void AktoreZerrendaOrdenatuaLortu(){
+    	
+    	
+    }
+    public void AktoreakPantailaratu(){
+    	Aktorea akt=null;
+    	Iterator<Aktorea>i=getIteradorea();
+    	while(i.hasNext()){
+    		akt= i.next();
+            System.out.println(akt);
+    	}
+    	}
+    }
 }
