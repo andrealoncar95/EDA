@@ -1,19 +1,24 @@
 package labo1;
-
 import java.util.ArrayList;
 import java.util.Iterator;
+
 public class Aktorea {
-	
+	//atributuak
 	private String izen;
 	private String abizena;
 
- 
-    public Aktorea(String pIzena, String pAbizena){
+	//metodoak
+	public Aktorea(String pIzena, String pAbizena){
         this.izen=pIzena;
         this.abizena=pAbizena;
     }
     
-	  public int compareTo(Aktorea akt) {
-	        return this.izenAbizena.compareTo(akt.izenAbizena);
-	    }
+    public boolean izenBerdinaDu(String pIzen, String pAbizen) {
+		if (this.izen.equals(pIzen)&&(this.abizena.equals(pAbizen))) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }
