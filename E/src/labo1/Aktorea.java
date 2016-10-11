@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 public class Aktorea {
 	
-	private String izenAbizena;
-    private ArrayList<Pelikula> pLista;
+	private String izen;
+	private String abizena;
+
  
-    public Aktorea(String pIzenAbizena){
-        this.izenAbizena=pIzenAbizena;
-        this.pLista=new ArrayList<Pelikula>();
+    public Aktorea(String pIzena, String pAbizena){
+        this.izen=pIzena;
+        this.abizena=pAbizena;
     }
     
 	  public int compareTo(Aktorea akt) {
