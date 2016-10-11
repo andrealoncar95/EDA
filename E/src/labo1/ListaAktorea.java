@@ -3,9 +3,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-
-import lab1verano.Aktore;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -57,13 +54,13 @@ public class ListaAktorea {
 		}
 	}
 	
-	public Aktorea bilatuAktorea(String izenAbizen) {
+	public Aktorea bilatuAktorea(String izen, String abizen) {
 		Iterator<Aktorea> i = getIteradorea();
 		Aktorea akt = null;
 		boolean aurkituta = false;
 		while ((i.hasNext())&&(!aurkituta)) {
 			akt = i.next();
-			if (akt.izenBerdinaDu(izenAbizen)) {
+			if (akt.izenBerdinaDu(izen, abizen)) {
 				aurkituta = true;
 			}
 		}
@@ -76,4 +73,19 @@ public class ListaAktorea {
 		}
 		return akt;
 	}
+
+    public void AktoreBatenPelikulakBueltatu(Aktorea akt) {
+    }
+    
+    public void AktoreZerrendaOrdenatuaLortu(){    	
+    }
+    
+    public void AktoreakPantailaratu(){
+    	Aktorea akt=null;
+    	Iterator<Aktorea>i=getIteradorea();
+    	while(i.hasNext()){
+    		akt= i.next();
+            System.out.println(akt);
+    	}
+    }
 }
