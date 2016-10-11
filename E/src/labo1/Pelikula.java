@@ -10,6 +10,6 @@ public class Pelikula {
 		this.izena=pIzena;
 	}
 	public void pelikulaBatekoAktoreakBueltatu(Pelikula p){
-		p.ak
+		p.akyyu
 	}
 }
