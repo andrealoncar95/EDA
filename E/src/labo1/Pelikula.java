@@ -5,9 +5,9 @@ public class Pelikula {
 	private String izena;
 	private int kostua;
 	
-	public Pelikula(String pIzena, int pKostua) {
+	public Pelikula(String pIzena) {
 		this.izena=pIzena;
-		this.kostua=pKostua;
+		this.kostua=0;
 	}
 	public void pelikulaBatekoAktoreakBueltatu(Pelikula p){
 	
