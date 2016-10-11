@@ -31,4 +31,8 @@ public class ListaPelikula {
 		this.lista.add(pelikula);
 		
 	}
+	
+	public void pelikulakPantailaratu() {
+		
+	}
 }
