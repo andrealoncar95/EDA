@@ -24,8 +24,7 @@ public class ListaAktorea {
         }
         else{
             return nireListaAktorea;
-        }
-        
+        }        
     }
     
     private Iterator<Aktorea> getIteradorea() {
