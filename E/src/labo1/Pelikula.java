@@ -27,6 +27,10 @@ public class Pelikula {
 		this.izena = izena;
 	}
 	
+	public ArrayList<Aktorea> getAktoreLista() {
+		return this.listaAktore;
+	}
+	
 	// metodoak
 	public Iterator<Aktorea> getIteradorea() {
 		return this.listaAktore.iterator();
@@ -34,6 +38,15 @@ public class Pelikula {
 	
 	public void pantailaratuIzena() {
 		System.out.println(this.izena);
+	}
+	
+	public void gehituAktorea(Aktorea akt) {
+		if (this.listaAktore.contains(akt)) {
+			System.out.println("Aktore hau listan dago jadanik");
+		}
+		else {
+			this.listaAktore.add(akt);
+		}
 	}
 	
 	public void pelikulaBatekoAktoreakBueltatu() {

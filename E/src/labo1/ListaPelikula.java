@@ -2,6 +2,7 @@ package labo1;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+
 public class ListaPelikula {
 	//atributuak
     private ArrayList <Pelikula> lista;
@@ -27,9 +28,22 @@ public class ListaPelikula {
         return this.lista.iterator();
     }
 
-	public void pelikulaGehitu(Pelikula pelikula) {
-		this.lista.add(pelikula);
-		
+    public void gehituPelikula(Pelikula peli) {
+		if (this.lista.contains(peli)) {
+			System.out.println("Pelikula listan zegoen jadanik.");
+		}
+		else {
+			this.lista.add(peli);
+		}
+	}
+	
+	public void ezabatuPelikula(Pelikula peli) {
+		if (this.lista.contains(peli)) {
+			this.lista.remove(peli);
+		}
+		else {
+			System.out.println("Pelikula ez zegoen listan.");
+		}
 	}
 	
 	public void pelikulakPantailaratu() {

@@ -7,8 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.regex.PatternSyntaxException;
- 
+import java.util.regex.PatternSyntaxException; 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
  
@@ -38,7 +37,7 @@ public class FitxategiaKargatu {
                 linea = entrada.nextLine();
                 String[] datuak=linea.split("\\s+--->\\s+");
                 Pelikula pelikula=new Pelikula(datuak[0]);
-                ListaPelikula.getListaPelikula().pelikulaGehitu(pelikula);
+                ListaPelikula.getListaPelikula().gehituPelikula(pelikula);
                 knt++;
                 for(int i=1;i<datuak.length;i++){
                     if (knt % 1000 == 0){   
@@ -50,7 +49,7 @@ public class FitxategiaKargatu {
                     else{
                         pel = new Pelikula(datuak[i],0);
                         ht.put(datuak[i],pel);
-                        ListaPelikula.getListaPelikula().pelikulaGehitu(pel);
+                        ListaPelikula.getListaPelikula().gehituPelikula(pel);
                     }
                     pel.gehituAktorea(akt);
                     akt.gehituPelikula(pel);
@@ -121,7 +120,7 @@ public class FitxategiaKargatu {
                     pel= new Pelikula(pelikulaAktoreak[j].toString(), null);
                     akt.gehituPelikula(pel);
                     pel.gehituAktorea(akt);
-                    ListaPelikula.getListaPelikula().pelikulaGehitu(pel);
+                    ListaPelikula.getListaPelikula().gehituPelikula(pel);
                     j++;
                 }
                 if(i>0 && i % 10000 == 0){
