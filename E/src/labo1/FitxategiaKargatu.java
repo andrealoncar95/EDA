@@ -19,7 +19,7 @@ public class FitxategiaKargatu {
         timer= new StopWatch();
         FitxategiaKargatu fk =new FitxategiaKargatu();
         //Frogatzeko artxiboa duzun direktorioan jarri behar duzu
-        fk.Fitxategia("/home/aalonso/Escritorio/aktor");
+        fk.Fitxategia("C:\\Users\\aalonso\\git\\EDA\\E\\src\\txt\\Fitxategi.txt");
         System.out.println("Denbora totala: " + timer.elapsedTime() + "s\n");
         ListaAktorea.getListaAktorea().AktoreakPantailaratu();
         ListaPelikula.getListaPelikula().pelikulakPantailaratu();
@@ -32,31 +32,35 @@ public class FitxategiaKargatu {
             String linea;
             Pelikula pel;
             Aktorea akt;
-            HashMap<String,Pelikula> ht=new HashMap<String,Pelikula>();
+            HashMap<String,Aktorea> ht=new HashMap<String,Aktorea>();
             while (entrada.hasNext()) {
                 linea = entrada.nextLine();
                 String[] datuak=linea.split("\\s+--->\\s+");
                 Pelikula pelikula=new Pelikula(datuak[0]);
                 ListaPelikula.getListaPelikula().gehituPelikula(pelikula);
+                datuak=datuak[1].split("\\s+&&&\\s+");
                 knt++;
                 for(int i=1;i<datuak.length;i++){
                     if (knt % 1000 == 0){   
-                        System.out.println(knt + " pelikula kargatu dira");
+                        System.out.println(knt + " aktore kargatu dira");
                     }
                     if(ht.containsKey(datuak[i])){
-                        pel=ht.get(datuak[i]);
+                        akt=ht.get(datuak[i]);
                     }
                     else{
-                        pel = new Pelikula(datuak[i],0);
-                        ht.put(datuak[i],pel);
-                        ListaPelikula.getListaPelikula().gehituPelikula(pel);
+                    	String[] izenaAbizen= datuak[i].split(",\\s+");
+                    	if (izenaAbizen.length==1){
+                    		akt= new Aktorea(null,izenaAbizen[0]);
+                    	}else{
+                    		akt = new Aktorea(izenaAbizen[1],izenaAbizen[0]);
+                    	}
+                        ht.put(datuak[i],akt);
+                        ListaAktorea.getListaAktorea().gehituAktorea(akt);
                     }
-                    pel.gehituAktorea(akt);
-                    akt.gehituPelikula(pel);
+                    pelikula.gehituAktorea(akt);
+                    akt.gehituPelikula(pelikula);
                 }
             }
- 
- 
             entrada.close();
         }
         catch(IOException e) {e.printStackTrace();}
@@ -117,10 +121,10 @@ public class FitxategiaKargatu {
             Pelikula pel;
             try {
                 while (!pelikulaAktoreak[j].isEmpty()){
-                    pel= new Pelikula(pelikulaAktoreak[j].toString(), null);
-                    akt.gehituPelikula(pel);
-                    pel.gehituAktorea(akt);
-                    ListaPelikula.getListaPelikula().gehituPelikula(pel);
+                   // pel= new Pelikula(pelikulaAktoreak[j].toString(), null);
+                    //akt.gehituPelikula(pel);
+                   // pel.gehituAktorea(akt);
+                   // ListaPelikula.getListaPelikula().gehituPelikula(pel);
                     j++;
                 }
                 if(i>0 && i % 10000 == 0){
