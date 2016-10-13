@@ -25,7 +25,6 @@ public class FitxategiaKargatu {
             int knt=0;
             Scanner entrada = new Scanner(new FileReader(nomFile));
             String linea;
-            Pelikula pel;
             Aktorea akt;
             HashMap<String,Aktorea> ht=new HashMap<String,Aktorea>();
             while (entrada.hasNext()) {
