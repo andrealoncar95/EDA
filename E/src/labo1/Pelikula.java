@@ -49,7 +49,34 @@ public class Pelikula {
 		}
 	}
 	
-	public void pelikulaBatekoAktoreakBueltatu() {
-		
-	}
+	public void AktoreakPantailaratu(){
+    	if(listaAktore==null){
+    		System.out.println("Ez dago aktorerik zerrendan");
+    	}
+    	else{
+    		Aktorea akt=null;
+    		Iterator<Aktorea>i=getIteradorea();
+    		while(i.hasNext()){
+    			akt= i.next();
+    			System.out.println(akt);
+    		}
+    	}
+    	}
+    	public boolean izenBerdinaDu (String izena2){
+    		if(this.izena.equals(izena2)){
+    			return true;
+    		}
+    		else{
+    			return false;
+    		}
+    	
+    }
+    	public void DiruaGehitu(int kantitatea){
+    		this.kostua=kantitatea+ this.kostua;
+    		}
+
+
+	
+	
+
 }
