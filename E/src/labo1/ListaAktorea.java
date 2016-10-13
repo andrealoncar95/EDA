@@ -25,7 +25,7 @@ public class ListaAktorea {
         }        
     }
     
-    private Iterator<Aktorea> getIteradorea() {
+    public Iterator<Aktorea> getIteradorea() {
         return this.lista.iterator();
     }
     
@@ -70,6 +70,7 @@ public class ListaAktorea {
 		}
 		return akt;
 	}
+	
 
     public void AktoreBatenPelikulakBueltatu(Aktorea akt) {
     }
@@ -82,7 +83,7 @@ public class ListaAktorea {
     	Iterator<Aktorea>i=getIteradorea();
     	while(i.hasNext()){
     		akt= i.next();
-            System.out.println(akt);
+            System.out.println(akt.getIzena()+" "+akt.getAbizena());
     	}
     }
 }
