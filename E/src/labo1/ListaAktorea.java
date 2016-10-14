@@ -35,7 +35,8 @@ public class ListaAktorea {
 
 	public void gehituAktorea(Aktorea akt) {
 		if (this.lista.contains(akt)) {
-			System.out.println("Aktore hau listan dago jadanik");
+			System.out.println(akt.getIzena()+" " +akt.getAbizena());
+			System.out.println("Aktore hau listan dago jadanik (");
 		}
 		else {
 			this.lista.add(akt);
@@ -115,8 +116,8 @@ public class ListaAktorea {
 			ListaAktorea.getListaAktorea().gehituAktorea(akt[k]);
 		}
 	}
-	private void reset() {
-		ListaAktorea.getListaAktorea().lista=new ArrayList<Aktorea>();
+	public void reset() {
+		ListaAktorea.getListaAktorea().lista.clear();;
 	}
 	// quickSort
 	private void zerrendaOrdenatu(ArrayList<Aktorea> listaAktorea, int hasiera, int bukaera) {
@@ -147,5 +148,7 @@ public class ListaAktorea {
 
 		return eskuin;
 	}
+	
+	
 
 }

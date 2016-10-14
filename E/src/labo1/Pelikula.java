@@ -42,7 +42,7 @@ public class Pelikula {
 	
 	public void gehituAktorea(Aktorea akt) {
 		if (this.listaAktore.contains(akt)) {
-			System.out.println("Aktore hau listan dago jadanik");
+			System.out.println("Aktore hau listan dago jadanik (Pelikula)");
 		}
 		else {
 			this.listaAktore.add(akt);
