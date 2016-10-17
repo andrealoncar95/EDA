@@ -6,12 +6,13 @@ public class Aktorea {
 	//atributuak
 	private String izen;
 	private String abizena;
-	private ArrayList<Pelikula> listaPelikula = new ArrayList<Pelikula>();
+	private ArrayList<Pelikula> listaPelikula;
 
 	//metodoak
 	public Aktorea(String pIzena, String pAbizena){
 		this.izen=pIzena;
 		this.abizena=pAbizena;
+		listaPelikula = new ArrayList<Pelikula>();
 	}
 
 	public String getIzena() {
@@ -86,9 +87,9 @@ public class Aktorea {
 			return false;
 		Aktorea other = (Aktorea) obj;
 		if (izen == null) {
-			if (other.izen != null)
+			if (other.izen != null )
 				return false;
-		} else if (!izen.equals(other.izen))
+		} else if (!izen.equals(other.izen)) 
 			return false;
 		return true;
 	} 

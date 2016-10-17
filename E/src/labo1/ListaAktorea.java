@@ -1,4 +1,5 @@
 package labo1;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -34,13 +35,7 @@ public class ListaAktorea {
 	}
 
 	public void gehituAktorea(Aktorea akt) {
-		if (this.lista.contains(akt)) {
-			System.out.println(akt.getIzena()+" " +akt.getAbizena());
-			System.out.println("Aktore hau listan dago jadanik (");
-		}
-		else {
 			this.lista.add(akt);
-		}
 	}
 
 	public void ezabatuAktorea(Aktorea akt) {
@@ -50,6 +45,25 @@ public class ListaAktorea {
 		else {
 			System.out.println("Aktore hau ez da existitzen.");
 		}
+	}
+	
+	public void AktoreakIdatzi(){
+    	try{
+    		PrintWriter pw= new PrintWriter("listaAktoreak.txt");
+    		Aktorea akt;
+    		Iterator<Aktorea> i= ListaAktorea.getListaAktorea().getIteradorea();
+    		while (i.hasNext()){
+    			akt=i.next();
+    			pw.print(akt.getIzena()+" "+akt.getAbizena());
+    			pw.println();
+    		}
+    		pw.close();
+    		System.out.println("Idatzi egin da");
+    	}
+    	catch (Exception e) {
+			e.printStackTrace();
+	
+    	}
 	}
 
 	public Aktorea bilatuAktorea(String izen, String abizen) {

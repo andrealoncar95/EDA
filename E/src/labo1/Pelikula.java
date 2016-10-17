@@ -6,12 +6,13 @@ public class Pelikula {
 	// atributuak
 	private String izena;
 	private int kostua;
-	private ArrayList<Aktorea> listaAktore = new ArrayList<Aktorea>();
+	private ArrayList<Aktorea> listaAktore; 
 	
 	// eraikitzailea
 	public Pelikula(String pIzena) {
 		this.izena = pIzena;
 		this.kostua = 0;
+		listaAktore= new ArrayList<Aktorea>();
 	}
 	
 	// getters & setters
@@ -41,12 +42,7 @@ public class Pelikula {
 	}
 	
 	public void gehituAktorea(Aktorea akt) {
-		if (this.listaAktore.contains(akt)) {
-			System.out.println("Aktore hau listan dago jadanik (Pelikula)");
-		}
-		else {
 			this.listaAktore.add(akt);
-		}
 	}
 	
 	public void AktoreakPantailaratu(){
