@@ -86,10 +86,10 @@ public class Aktorea {
 		if (!(obj instanceof Aktorea))
 			return false;
 		Aktorea other = (Aktorea) obj;
-		if (izen == null) {
-			if (other.izen != null )
+		if ((this.izen==null)&&(this.abizena==null)) {
+			if ((other.izen!=null)||(other.abizena!=null))
 				return false;
-		} else if (!izen.equals(other.izen)) 
+		} else if ((!this.izen.equals(other.izen))||(!this.abizena.equals(other.abizena))) 
 			return false;
 		return true;
 	} 
@@ -97,6 +97,4 @@ public class Aktorea {
 	public int compareTo(Aktorea a) {
 		return this.abizena.compareTo(a.abizena);
 	}
-
-
 }
