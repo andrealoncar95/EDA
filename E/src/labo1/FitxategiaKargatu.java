@@ -35,17 +35,26 @@ public class FitxategiaKargatu {
                 ListaPelikula.getListaPelikula().gehituPelikula(pelikula);
                 datuak=datuak[1].split("\\s+&&&\\s+");
                 for(int i=0;i<datuak.length;i++){
-                    if(ht.containsKey(datuak[i])){
-                        akt=ht.get(datuak[i]);
+                	String[] izenaAbizen= datuak[i].split(",\\s+");
+                	String gakoa=null;
+                	if (izenaAbizen.length==1){
+			//trim metodoa zuriuneak kentzeko balio du
+                		gakoa= izenaAbizen[0].trim();
+                	}
+                	else{
+                		gakoa= izenaAbizen[0].trim()+izenaAbizen[1].trim();
+                	}
+                	
+                    if(ht.containsKey(gakoa)){
+                        akt=ht.get(gakoa);
                     }
                     else{
-                    	String[] izenaAbizen= datuak[i].split(",\\s+");
                     	if (izenaAbizen.length==1){
                     		akt= new Aktorea(null,izenaAbizen[0]);
                     	}else{
                     		akt = new Aktorea(izenaAbizen[1],izenaAbizen[0]);
                     	}
-                        ht.put(datuak[i],akt);
+                        ht.put(gakoa,akt);
                         ListaAktorea.getListaAktorea().gehituAktorea(akt);
                     }
                     pelikula.gehituAktorea(akt);
