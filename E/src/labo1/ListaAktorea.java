@@ -46,6 +46,10 @@ public class ListaAktorea {
 		}
 	}
 	
+	public ArrayList<Aktorea> getLista(){
+		return this.lista;
+	}
+	
 	public void AktoreakIdatzi(){
     	try{
     		PrintWriter pw= new PrintWriter("listaAktoreak.txt");
@@ -133,8 +137,8 @@ public class ListaAktorea {
 		ListaAktorea.getListaAktorea().lista.clear();;
 	}
 	// quickSort
-	private void zerrendaOrdenatu(ArrayList<Aktorea> listaAktorea, int hasiera, int bukaera) {
-		if (bukaera - hasiera > 0) {
+	public void zerrendaOrdenatu(ArrayList<Aktorea> listaAktorea, int hasiera, int bukaera) {
+		if (bukaera - hasiera >= 0) {
 			int ind = zatiketa(listaAktorea, hasiera, bukaera);
 			zerrendaOrdenatu(listaAktorea, hasiera, ind - 1);
 			zerrendaOrdenatu(listaAktorea, ind + 1, bukaera);

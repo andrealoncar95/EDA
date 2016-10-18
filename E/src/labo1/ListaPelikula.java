@@ -89,26 +89,12 @@ public class ListaPelikula {
 	                ListaPelikula.getListaPelikula().gehituPelikula(pelikula);
 	                datuak=datuak[1].split("\\s+&&&\\s+");
 	                for(int i=0;i<datuak.length;i++){
-	                	String[] izenaAbizen= datuak[i].split(",\\s+");
-	                	String gakoa=null;
-	                	if (izenaAbizen.length==1){
-				//trim metodoa zuriuneak kentzeko balio du
-	                		gakoa= izenaAbizen[0].trim();
-	                	}
-	                	else{
-	                		gakoa= izenaAbizen[0].trim()+izenaAbizen[1].trim();
-	                	}
-	                	
-	                    if(ht.containsKey(gakoa)){
-	                        akt=ht.get(gakoa);
+	                    if(ht.containsKey(datuak[i])){
+	                        akt=ht.get(datuak[i]);
 	                    }
 	                    else{
-	                    	if (izenaAbizen.length==1){
-	                    		akt= new Aktorea(izenaAbizen[0]);
-	                    	}else{
-	                    		akt = new Aktorea(izenaAbizen[0]);
-	                    	}
-	                        ht.put(gakoa,akt);
+	                    	akt= new Aktorea(datuak[i]);
+	                        ht.put(datuak[i],akt);
 	                        ListaAktorea.getListaAktorea().gehituAktorea(akt);
 	                    }
 	                    pelikula.gehituAktorea(akt);
@@ -122,5 +108,9 @@ public class ListaPelikula {
 
 	public void reset() {
 		ListaPelikula.getListaPelikula().lista.clear();
+	}
+
+	public int tamaina() {
+		return this.lista.size();
 	}
 }
