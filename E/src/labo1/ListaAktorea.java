@@ -34,7 +34,8 @@ public class ListaAktorea {
 	}
 
 	public void gehituAktorea(Aktorea akt) {
-			this.lista.add(akt);
+		this.lista.add(akt);
+
 	}
 
 	public void ezabatuAktorea(Aktorea akt) {
@@ -45,28 +46,28 @@ public class ListaAktorea {
 			System.out.println("Aktore hau ez da existitzen.");
 		}
 	}
-	
+
 	public ArrayList<Aktorea> getLista(){
 		return this.lista;
 	}
-	
+
 	public void AktoreakIdatzi(){
-    	try{
-    		PrintWriter pw= new PrintWriter("listaAktoreak.txt");
-    		Aktorea akt;
-    		Iterator<Aktorea> i= ListaAktorea.getListaAktorea().getIteradorea();
-    		while (i.hasNext()){
-    			akt=i.next();
-    			pw.print(akt.getAbizenaIzena());
-    			pw.println();
-    		}
-    		pw.close();
-    		System.out.println("Idatzi egin da");
-    	}
-    	catch (Exception e) {
+		try{
+			PrintWriter pw= new PrintWriter("listaAktoreak.txt");
+			Aktorea akt;
+			Iterator<Aktorea> i= ListaAktorea.getListaAktorea().getIteradorea();
+			while (i.hasNext()){
+				akt=i.next();
+				pw.print(akt.getAbizenaIzena());
+				pw.println();
+			}
+			pw.close();
+			System.out.println("Idatzi egin da");
+		}
+		catch (Exception e) {
 			e.printStackTrace();
-	
-    	}
+
+		}
 	}
 
 	public Aktorea bilatuAktorea(String abizenIzen) {
@@ -144,7 +145,7 @@ public class ListaAktorea {
 			zerrendaOrdenatu(listaAktorea, ind + 1, bukaera);
 		}
 	}
-	
+
 	private int zatiketa(ArrayList<Aktorea> listaAktorea, int i, int f) {
 		Aktorea a = listaAktorea.get(i);
 
