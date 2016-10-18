@@ -15,5 +15,5 @@ public class ProbaKasuak {
         ListaPelikula.getListaPelikula().FitxategiaKargatu("C:\\Users\\aalonso\\Dropbox\\EDA\\DEA BERRIA\\Film.txt");
         System.out.println("Denbora totala: " + timer.elapsedTime() + "s\n");
         //fk.AktoreakIdatzi();
-    }   
+    }    
 }
