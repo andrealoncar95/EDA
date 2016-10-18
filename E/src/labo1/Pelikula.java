@@ -57,8 +57,9 @@ public class Pelikula {
     			System.out.println(akt);
     		}
     	}
-    	}
-    	public boolean izenBerdinaDu (String izena2){
+    }
+    
+	public boolean izenBerdinaDu (String izena2){
     		if(this.izena.equals(izena2)){
     			return true;
     		}
@@ -67,12 +68,8 @@ public class Pelikula {
     		}
     	
     }
-    	public void DiruaGehitu(int kantitatea){
+    
+	public void DiruaGehitu(int kantitatea){
     		this.kostua=kantitatea+ this.kostua;
-    		}
-
-
-	
-	
-
+    }
 }

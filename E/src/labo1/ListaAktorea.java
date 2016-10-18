@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
-
 public class ListaAktorea {
 	//atributuak
 	private ArrayList <Aktorea> lista;
@@ -54,7 +53,7 @@ public class ListaAktorea {
     		Iterator<Aktorea> i= ListaAktorea.getListaAktorea().getIteradorea();
     		while (i.hasNext()){
     			akt=i.next();
-    			pw.print(akt.getIzena()+" "+akt.getAbizena());
+    			pw.print(akt.getAbizenaIzena());
     			pw.println();
     		}
     		pw.close();
@@ -66,13 +65,13 @@ public class ListaAktorea {
     	}
 	}
 
-	public Aktorea bilatuAktorea(String izen, String abizen) {
+	public Aktorea bilatuAktorea(String abizenIzen) {
 		Iterator<Aktorea> i = getIteradorea();
 		Aktorea akt = null;
 		boolean aurkituta = false;
 		while ((i.hasNext())&&(!aurkituta)) {
 			akt = i.next();
-			if (akt.izenBerdinaDu(izen, abizen)) {
+			if (akt.izenBerdinaDu(abizenIzen)) {
 				aurkituta = true;
 			}
 		}
@@ -88,8 +87,8 @@ public class ListaAktorea {
 
 
 
-	public void aktoreBatenPelikulakBueltatu(String izena, String abizena){
-		Aktorea a=bilatuAktorea(izena, abizena);
+	public void aktoreBatenPelikulakBueltatu(String abizenIzen){
+		Aktorea a = bilatuAktorea(abizenIzen);
 		if(a==null){
 			System.out.println("Aktorea ez dago zerrendan");
 		}
@@ -103,7 +102,7 @@ public class ListaAktorea {
 		Iterator<Aktorea>i=getIteradorea();
 		while(i.hasNext()){
 			akt= i.next();
-			System.out.println(akt.getIzena()+" "+akt.getAbizena());
+			System.out.println(akt.getAbizenaIzena());
 		}
 	}
 
@@ -162,7 +161,4 @@ public class ListaAktorea {
 
 		return eskuin;
 	}
-	
-	
-
 }

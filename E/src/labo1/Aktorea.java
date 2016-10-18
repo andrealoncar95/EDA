@@ -4,31 +4,21 @@ import java.util.Iterator;
 
 public class Aktorea {
 	//atributuak
-	private String izen;
-	private String abizena;
+	private String abizenIzen;
 	private ArrayList<Pelikula> listaPelikula;
 
 	//metodoak
-	public Aktorea(String pIzena, String pAbizena){
-		this.izen=pIzena;
-		this.abizena=pAbizena;
+	public Aktorea(String pAbizenIzen){
+		this.abizenIzen = pAbizenIzen;
 		listaPelikula = new ArrayList<Pelikula>();
 	}
 
-	public String getIzena() {
-		return this.izen;
+	public String getAbizenaIzena() {
+		return this.abizenIzen;
 	}
 
-	public String getAbizena() {
-		return this.abizena;
-	}
-
-	public void setIzena(String izen) {
-		this.izen = izen;
-	}
-
-	public void setAbizena(String abizena) {
-		this.abizena = abizena;
+	public void setAbizenaIzena(String pAbizenIzen) {
+		this.abizenIzen = pAbizenIzen;
 	}
 
 	public ArrayList<Pelikula> getPelikulaLista() {
@@ -43,8 +33,8 @@ public class Aktorea {
 		this.listaPelikula.add(peli);
 	}
 
-	public boolean izenBerdinaDu(String pIzen, String pAbizen) {
-		if (this.izen.equals(pIzen)&&(this.abizena.equals(pAbizen))) {
+	public boolean izenBerdinaDu(String pAbizenIzen) {
+		if (this.abizenIzen.equals(pAbizenIzen)) {
 			return true;
 		}
 		else {
@@ -53,7 +43,7 @@ public class Aktorea {
 	}
 
 	public void pantailaratuIzenAbizenak() {
-		System.out.println(this.izen + this.abizena);
+		System.out.println(this.abizenIzen);
 	}
 
 	public void pelikulakPantailaratu(){
@@ -73,7 +63,7 @@ public class Aktorea {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((izen == null) ? 0 : izen.hashCode());
+		result = prime * result + ((this.abizenIzen == null) ? 0 : this.abizenIzen.hashCode());
 		return result;
 	}
 
@@ -86,15 +76,15 @@ public class Aktorea {
 		if (!(obj instanceof Aktorea))
 			return false;
 		Aktorea other = (Aktorea) obj;
-		if ((this.izen==null)&&(this.abizena==null)) {
-			if ((other.izen!=null)||(other.abizena!=null))
+		if (this.abizenIzen==null) {
+			if (other.abizenIzen!=null)
 				return false;
-		} else if ((!this.izen.equals(other.izen))||(!this.abizena.equals(other.abizena))) 
+		} else if (!this.abizenIzen.equals(other.abizenIzen)) 
 			return false;
 		return true;
 	} 
 	
 	public int compareTo(Aktorea a) {
-		return this.abizena.compareTo(a.abizena);
+		return this.abizenIzen.compareTo(a.abizenIzen);
 	}
 }

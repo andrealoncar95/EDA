@@ -50,8 +50,8 @@ public class ListaPelikula {
 		}
 	}
 
-	public void pelikulaBatekoAktoreakPantailaratu(String izena){
-		Pelikula p=bilatuPelikula(izena);
+	public void pelikulaBatekoAktoreakPantailaratu(String abizenIzen){
+		Pelikula p = bilatuPelikula(abizenIzen);
 		if(p==null){
 			System.out.println("Pelikula ez dago zerrendan");
 		}
@@ -60,13 +60,13 @@ public class ListaPelikula {
 		}
 	}
 
-	public Pelikula bilatuPelikula (String izena){
+	public Pelikula bilatuPelikula (String abizenIzen){
 		Iterator <Pelikula>i=getIteradorea();
 		Pelikula p1=null;
 		boolean topatu = false;
 		while(i.hasNext()&&(!topatu)){
 			p1=i.next();
-			if(p1.izenBerdinaDu(izena)){
+			if(p1.izenBerdinaDu(abizenIzen)){
 				topatu=true;
 			}
 		}
@@ -104,9 +104,9 @@ public class ListaPelikula {
 	                    }
 	                    else{
 	                    	if (izenaAbizen.length==1){
-	                    		akt= new Aktorea(null,izenaAbizen[0]);
+	                    		akt= new Aktorea(izenaAbizen[0]);
 	                    	}else{
-	                    		akt = new Aktorea(izenaAbizen[1],izenaAbizen[0]);
+	                    		akt = new Aktorea(izenaAbizen[0]);
 	                    	}
 	                        ht.put(gakoa,akt);
 	                        ListaAktorea.getListaAktorea().gehituAktorea(akt);
@@ -122,7 +122,5 @@ public class ListaPelikula {
 
 	public void reset() {
 		ListaPelikula.getListaPelikula().lista.clear();
-		
 	}
-
 }
