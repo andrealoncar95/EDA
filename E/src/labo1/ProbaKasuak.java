@@ -1,5 +1,4 @@
 package labo1;
-
 import java.io.IOException;
 
 public class ProbaKasuak {
