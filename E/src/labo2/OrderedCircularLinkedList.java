@@ -12,7 +12,6 @@ public class OrderedCircularLinkedList<T> extends CircularLinkedList<T> implemen
 		if(isEmpty()){
 			last=sartu;
 			last.next=last;
-			count++;
 		}
 		else{
 			//lehengo, ematen diguten datua handiena dela edo listan objetu bat
@@ -21,7 +20,6 @@ public class OrderedCircularLinkedList<T> extends CircularLinkedList<T> implemen
 				last.next=sartu;
 				sartu.next=last;
 				last=sartu;
-				count++;
 				aurkitua=true;
 			}
 			while(!aurkitua){
@@ -32,10 +30,10 @@ public class OrderedCircularLinkedList<T> extends CircularLinkedList<T> implemen
 					aurkitua=true;
 					sartu.next=lag.next;
 					lag.next=sartu;
-					count++;
 				}
-			}
+			}	
 		}
+		count++;
 	}
 
 }
