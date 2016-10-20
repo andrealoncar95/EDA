@@ -4,24 +4,28 @@ public class UnorderedCircularLinkedList<T> extends CircularLinkedList<T> implem
 
 	public void addToFront(T elem) {
 		// hasieran gehitu
+		Node<T> elementua= new Node<T>(elem);
 		if (!isEmpty()){
-			Node<T> elementua= new Node<T>(elem);
 			elementua.next=last.next.next;
 			last.next=elementua;
-			count++;
+		}else{
+			last=elementua;
 		}
+		count++;
 
 	}
 
 	public void addToRear(T elem) {
 		// bukaeran gehitu
+		Node <T> elementua= new Node<T>(elem);
 		if (!isEmpty()){
-			Node <T> elementua= new Node<T>(elem);
 			elementua.next= last.next;
 			last.next=elementua;
 			last=elementua;
-			count++;
+		}else{
+			last=elementua;
 		}
+		count++;
 	}
 
 	public void addAfter(T elem, T target) {
@@ -38,9 +42,11 @@ public class UnorderedCircularLinkedList<T> extends CircularLinkedList<T> implem
 					bilatu= bilatu.next;
 				}
 			}
-			count++;
 		}
-
+		else{
+			last=elementua;
+		}
+		count++;
 	}
 
 }

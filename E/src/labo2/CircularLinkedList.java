@@ -78,7 +78,7 @@ public class CircularLinkedList<T> implements ListADT<T> {
 			count--;
 			return lag.data; 
 		}else{
-			while(!aurkitua){
+			while(!aurkitua&&bilatzaile!=last){
 				if(bilatzaile.next.data.equals(elem)){
 					lag= bilatzaile.next;
 					bilatzaile.next=lag.next;				
@@ -113,13 +113,28 @@ public class CircularLinkedList<T> implements ListADT<T> {
 
 	public boolean contains(T elem) {
 		// Egiazkoa bueltatuko du aurkituz gero, eta false bestela
+		boolean aurkitua=false;
+		Node<T> lag=last.next;
+		while(!aurkitua&lag!=last){
+			if(lag.next.data.equals(elem)){
+				aurkitua=true;
+			}
+			else{
+				lag=lag.next;
+			}
+		}	
+		return aurkitua;
 
 	}
 
 	public T find(T elem) {
 		// Elementua bueltatuko du aurkituz gero, eta null bestela
-
-		// KODEA OSATU ETA KOSTUA KALKULATU
+		if (contains(elem)){
+			return elem;
+		}
+		else{
+			return null;
+		}
 	}
 
 	public boolean isEmpty() 
@@ -133,7 +148,7 @@ public class CircularLinkedList<T> implements ListADT<T> {
 
 	// an iterator, doesn't implement remove() since it's optional 
 	private class ListIterator implements Iterator<T> { 
-
+		
 		// KODEA OSATU 
 	} // private class
 

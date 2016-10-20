@@ -2,17 +2,19 @@ package labo1;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import labo2.UnorderedCircularLinkedList;
+
 public class Pelikula {
 	// atributuak
 	private String izena;
 	private int kostua;
-	private ArrayList<Aktorea> listaAktore; 
+	private UnorderedCircularLinkedList<Aktorea> listaAktore; 
 	
 	// eraikitzailea
 	public Pelikula(String pIzena) {
 		this.izena = pIzena;
 		this.kostua = 0;
-		listaAktore= new ArrayList<Aktorea>();
+		listaAktore= new UnorderedCircularLinkedList<Aktorea>();
 	}
 	
 	// getters & setters
@@ -28,7 +30,7 @@ public class Pelikula {
 		this.izena = izena;
 	}
 	
-	public ArrayList<Aktorea> getAktoreLista() {
+	public UnorderedCircularLinkedList<Aktorea> getAktoreLista() {
 		return this.listaAktore;
 	}
 	
@@ -42,7 +44,7 @@ public class Pelikula {
 	}
 	
 	public void gehituAktorea(Aktorea akt) {
-			this.listaAktore.add(akt);
+			listaAktore.addToRear(akt);
 	}
 	
 	public void AktoreakPantailaratu(){
@@ -72,4 +74,6 @@ public class Pelikula {
 	public void DiruaGehitu(int kantitatea){
     		this.kostua=kantitatea+ this.kostua;
     }
+	
+
 }
