@@ -11,7 +11,7 @@ public class UnorderedCircularLinkedList<T> extends CircularLinkedList<T> implem
 			last.next=elementua;
 		}else{
 			last=elementua;
-			last.next=elementua;
+			last.next=last;
 		}
 		count++;
 
@@ -48,7 +48,7 @@ public class UnorderedCircularLinkedList<T> extends CircularLinkedList<T> implem
 		}
 		else{
 			last=elementua;
-			last.next=elementua;
+			last.next=last;
 		}
 		count++;
 	}

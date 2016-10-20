@@ -11,6 +11,7 @@ public class OrderedCircularLinkedList<T> extends CircularLinkedList<T> implemen
 		//lista huts badago
 		if(isEmpty()){
 			last=sartu;
+			last.next=last;
 			count++;
 		}
 		else{
