@@ -5,9 +5,6 @@ public class OrderedCircularLinkedList<T> extends CircularLinkedList<T> implemen
 	public void add(T elem){
 		// KODEA OSATU ETA KOSTUA KALKULATU
 
-
-
 	}
-
-
+	
 }
