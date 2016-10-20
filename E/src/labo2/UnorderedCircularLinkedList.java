@@ -8,6 +8,7 @@ public class UnorderedCircularLinkedList<T> extends CircularLinkedList<T> implem
 			Node<T> elementua= new Node<T>(elem);
 			elementua.next=last.next.next;
 			last.next=elementua;
+			count++;
 		}
 
 	}
@@ -19,6 +20,7 @@ public class UnorderedCircularLinkedList<T> extends CircularLinkedList<T> implem
 			elementua.next= last.next;
 			last.next=elementua;
 			last=elementua;
+			count++;
 		}
 	}
 
@@ -36,6 +38,7 @@ public class UnorderedCircularLinkedList<T> extends CircularLinkedList<T> implem
 					bilatu= bilatu.next;
 				}
 			}
+			count++;
 		}
 
 	}
