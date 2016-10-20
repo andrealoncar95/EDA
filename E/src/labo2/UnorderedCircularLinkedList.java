@@ -6,10 +6,12 @@ public class UnorderedCircularLinkedList<T> extends CircularLinkedList<T> implem
 		// hasieran gehitu
 		Node<T> elementua= new Node<T>(elem);
 		if (!isEmpty()){
-			elementua.next=last.next.next;
+			Node<T> lehengoa=last.next;
+			elementua.next=lehengoa.next;
 			last.next=elementua;
 		}else{
 			last=elementua;
+			last.next=elementua;
 		}
 		count++;
 
@@ -24,6 +26,7 @@ public class UnorderedCircularLinkedList<T> extends CircularLinkedList<T> implem
 			last=elementua;
 		}else{
 			last=elementua;
+			last.next=last;
 		}
 		count++;
 	}
@@ -45,6 +48,7 @@ public class UnorderedCircularLinkedList<T> extends CircularLinkedList<T> implem
 		}
 		else{
 			last=elementua;
+			last.next=elementua;
 		}
 		count++;
 	}
