@@ -144,19 +144,58 @@ public class CircularLinkedList<T> implements ListADT<T> {
 	{ return count;};
 
 	/** Return an iterator to the stack that iterates through the items . */ 
-	public Iterator<T> iterator() { return new ListIterator(); } 
+	public Iterator<T> iterator() {
+		return new GureIteradorea();
+	} 
 
 	// an iterator, doesn't implement remove() since it's optional 
-	private class ListIterator implements Iterator<T> { 
+	private class GureIteradorea implements Iterator<T> {
+		protected Node<Pertsona> first;
+		protected Node<Pertsona> unekoa;
 		
-		// KODEA OSATU 
-	} // private class
+		public GureIteradorea() {
+			unekoa = first;
+		}
+		
+		public boolean hasNext() {
+			if(unekoa==null) {
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+		
+		public Pertsona Next() {
+			if(!hasNext()) {
+				try {
+					throw new Exception();
+				} catch (Exception e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+			else {
+				Pertsona temp = unekoa.data;
+				unekoa = unekoa.next;
+				return temp;
+			}
+		}
+		
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
 
+		@Override
+		public T next() {
+			return null;
+		}
+	}
 
+	
 	public void adabegiakInprimatu() {
 		System.out.println(this.toString());
 	}
-
 
 	@Override
 	public String toString() {
@@ -168,5 +207,4 @@ public class CircularLinkedList<T> implements ListADT<T> {
 		}	
 		return "SimpleLinkedList " + result + "]";
 	}
-
 }
