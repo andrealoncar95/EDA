@@ -150,8 +150,8 @@ public class CircularLinkedList<T> implements ListADT<T> {
 
 	// an iterator, doesn't implement remove() since it's optional 
 	private class GureIteradorea implements Iterator<T> {
-		protected Node<Pertsona> first;
-		protected Node<Pertsona> unekoa;
+		protected Node<T> first;
+		protected Node<T> unekoa;
 		
 		public GureIteradorea() {
 			unekoa = first;
@@ -166,7 +166,7 @@ public class CircularLinkedList<T> implements ListADT<T> {
 			}
 		}
 		
-		public Pertsona Next() {
+		public T next() {
 			if(!hasNext()) {
 				try {
 					throw new Exception();
@@ -176,7 +176,7 @@ public class CircularLinkedList<T> implements ListADT<T> {
 				}
 			}
 			else {
-				Pertsona temp = unekoa.data;
+				T temp = unekoa.data;
 				unekoa = unekoa.next;
 				return temp;
 			}
@@ -184,11 +184,6 @@ public class CircularLinkedList<T> implements ListADT<T> {
 		
 		public void remove() {
 			throw new UnsupportedOperationException();
-		}
-
-		@Override
-		public T next() {
-			return null;
 		}
 	}
 
