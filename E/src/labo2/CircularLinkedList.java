@@ -80,6 +80,7 @@ public class CircularLinkedList<T> implements ListADT<T> {
 		}else{
 			while(!aurkitua&&bilatzaile!=last){
 				if(bilatzaile.next.data.equals(elem)){
+					aurkitua=true;
 					lag= bilatzaile.next;
 					bilatzaile.next=lag.next;				
 				}
@@ -114,15 +115,14 @@ public class CircularLinkedList<T> implements ListADT<T> {
 	public boolean contains(T elem) {
 		// Egiazkoa bueltatuko du aurkituz gero, eta false bestela
 		boolean aurkitua=false;
-		Node<T> lag=last.next;
-		while(!aurkitua&lag!=last){
-			if(lag.next.data.equals(elem)){
+		T lag=null;
+		Iterator<T> it= iterator();
+		while(it.hasNext()){
+			lag=it.next();
+			if(lag.equals(elem)){
 				aurkitua=true;
 			}
-			else{
-				lag=lag.next;
-			}
-		}	
+		}
 		return aurkitua;
 
 	}
@@ -152,13 +152,18 @@ public class CircularLinkedList<T> implements ListADT<T> {
 	private class GureIteradorea implements Iterator<T> {
 		protected Node<T> first;
 		protected Node<T> unekoa;
+		boolean lehen=true;
 		
 		public GureIteradorea() {
+			//first no estaba inicializado
+			first=last.next;
 			unekoa = first;
+			
 		}
 		
 		public boolean hasNext() {
-			if(unekoa==null) {
+			//aqui ponia null, en vez de last 
+			if(unekoa==first&&lehen==false) {
 				return false;
 			}
 			else {
@@ -176,6 +181,7 @@ public class CircularLinkedList<T> implements ListADT<T> {
 				}
 			}
 			else {
+				lehen=false;
 				T temp = unekoa.data;
 				unekoa = unekoa.next;
 				return temp;
@@ -194,8 +200,8 @@ public class CircularLinkedList<T> implements ListADT<T> {
 
 	@Override
 	public String toString() {
-		String result = new String();
-		Iterator<T> it = iterator();
+		String result  = new String();
+		Iterator<T> it = this.iterator();
 		while (it.hasNext()) {
 			T elem = it.next();
 			result = result + "[" + elem.toString() + "] \n";

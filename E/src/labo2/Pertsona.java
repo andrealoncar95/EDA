@@ -38,7 +38,7 @@ public class Pertsona implements Comparable<Pertsona> {
 			
 	@Override
 	public int compareTo(Pertsona arg0) {
-		return name.compareToIgnoreCase(arg0.name);
+		return name.compareTo(arg0.name);
 	}
 
 	public String toString() {

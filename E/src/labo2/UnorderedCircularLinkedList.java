@@ -7,7 +7,7 @@ public class UnorderedCircularLinkedList<T> extends CircularLinkedList<T> implem
 		Node<T> elementua= new Node<T>(elem);
 		if (!isEmpty()){
 			Node<T> lehengoa=last.next;
-			elementua.next=lehengoa.next;
+			elementua.next=lehengoa;
 			last.next=elementua;
 		}else{
 			last=elementua;

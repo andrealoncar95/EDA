@@ -17,8 +17,8 @@ public class OrderedCircularLinkedList<T> extends CircularLinkedList<T> implemen
 			//lehengo, ematen diguten datua handiena dela edo listan objetu bat
 			//baino ez daukagun kasua aztertuko dugu
 			if(obj.compareTo(last.data)==1){
+				sartu.next=last.next;
 				last.next=sartu;
-				sartu.next=last;
 				last=sartu;
 				aurkitua=true;
 			}
