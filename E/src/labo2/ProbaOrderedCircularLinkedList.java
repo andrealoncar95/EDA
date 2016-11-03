@@ -5,14 +5,14 @@ public class ProbaOrderedCircularLinkedList {
 		public static void main(String[] args)  {
 			
 			OrderedCircularLinkedList<Integer> l = new OrderedCircularLinkedList<Integer>();
-			l.add(1);
-			l.add(3);
-			l.add(6);
-			l.add(7);
-			l.add(9);
-			l.add(0);
 			l.add(20);
-			l.remove(new Integer(7));
+			l.add(455);
+			l.add(62);
+			l.add(71);
+			l.add(1);
+			l.add(4);
+			l.add(220);
+			l.remove(new Integer(71));
 
 			
 			System.out.print(" Lista ...............");
@@ -36,7 +36,6 @@ public class ProbaOrderedCircularLinkedList {
 			l2.add(new Pertsona("unai", "8888"));
 			l2.add(new Pertsona("pedro", "2222"));
 			l2.add(new Pertsona("olatz", "5555"));
-
 			l2.remove(new Pertsona("", "8888"));
 
 			

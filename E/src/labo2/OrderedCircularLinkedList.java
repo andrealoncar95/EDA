@@ -14,16 +14,16 @@ public class OrderedCircularLinkedList<T> extends CircularLinkedList<T> implemen
 			last.next=last;
 		}
 		else{
-			//lehengo, ematen diguten datua handiena dela edo listan objetu bat
+			//lehen, ematen diguten datua handiena dela edo listan objetu bat
 			//baino ez daukagun kasua aztertuko dugu
-			if(obj.compareTo(last.data)==1){
+			if(obj.compareTo(last.data)>0){
 				sartu.next=last.next;
 				last.next=sartu;
 				last=sartu;
 				aurkitua=true;
 			}
 			while(!aurkitua){
-				if(obj.compareTo(lag.next.data)==1){
+				if(obj.compareTo(lag.next.data)>0){
 					lag=lag.next;
 				}
 				else{
