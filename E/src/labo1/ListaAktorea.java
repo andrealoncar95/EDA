@@ -38,9 +38,9 @@ public class ListaAktorea {
 
 	}
 
-	public void ezabatuAktorea(Aktorea akt) {
-		if (this.lista.contains(akt)) {
-			this.lista.remove(akt);
+	public void ezabatuAktorea(Aktorea aktore) {
+		if (this.lista.contains(aktore)) {
+			this.lista.remove(aktore);
 		}
 		else {
 			System.out.println("Aktore hau ez da existitzen.");

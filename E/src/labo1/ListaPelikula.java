@@ -59,6 +59,14 @@ public class ListaPelikula {
 			p.AktoreakPantailaratu();
 		}
 	}
+	
+	public void pelikuletatikAktoreaEzabatu(Aktorea akt) {
+		Iterator <Pelikula>i=getIteradorea();
+		Pelikula p1=null;
+		while(i.hasNext()) {
+			p1.ezabatuAktorea(akt);
+		}
+	}
 
 	public Pelikula bilatuPelikula (String izen){
 		Iterator <Pelikula>i=getIteradorea();

@@ -44,7 +44,11 @@ public class Pelikula {
 	}
 	
 	public void gehituAktorea(Aktorea akt) {
-			listaAktore.addToRear(akt);
+		listaAktore.addToRear(akt);
+	}
+	
+	public void ezabatuAktorea(Aktorea akt) {
+		listaAktore.remove(akt);
 	}
 	
 	public void AktoreakPantailaratu(){
