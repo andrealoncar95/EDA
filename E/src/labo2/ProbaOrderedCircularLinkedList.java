@@ -5,6 +5,7 @@ public class ProbaOrderedCircularLinkedList {
 		public static void main(String[] args)  {
 			
 			OrderedCircularLinkedList<Integer> l = new OrderedCircularLinkedList<Integer>();
+			//elementuak ordean gehitu
 			l.add(20);
 			l.add(455);
 			l.add(62);
@@ -12,10 +13,12 @@ public class ProbaOrderedCircularLinkedList {
 			l.add(1);
 			l.add(4);
 			l.add(220);
+			//ezabatu 
 			l.remove(new Integer(71));
 
 			
 			System.out.print(" Lista ...............");
+			//iteradorea frogatzen dugu
 			l.adabegiakInprimatu();
 			System.out.println(" Elementu-kopurua: " + l.size());
 					
@@ -30,12 +33,14 @@ public class ProbaOrderedCircularLinkedList {
 			
 			
 			OrderedCircularLinkedList<Pertsona> l2 = new OrderedCircularLinkedList<Pertsona>();
+			//pertsonak ordenatuak sartu
 			l2.add(new Pertsona("jon", "1111"));
 			l2.add(new Pertsona("ana", "7777"));
 			l2.add(new Pertsona("amaia", "3333"));
 			l2.add(new Pertsona("unai", "8888"));
 			l2.add(new Pertsona("pedro", "2222"));
 			l2.add(new Pertsona("olatz", "5555"));
+			//ezabatu
 			l2.remove(new Pertsona("", "8888"));
 
 			

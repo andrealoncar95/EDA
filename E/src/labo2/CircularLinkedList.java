@@ -55,6 +55,7 @@ public class CircularLinkedList<T> implements ListADT<T> {
 				lag.next=last.next;
 				datua= last.data;
 				last=lag;
+				aurkitu=true;
 			}else{
 				lag=lag.next;
 			}
