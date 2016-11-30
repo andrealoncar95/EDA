@@ -16,5 +16,10 @@ public class ProbaKasuak {
         ListaAktorea.getListaAktorea().zerrendaOrdenatu(ListaAktorea.getListaAktorea().getLista(), 0, ListaAktorea.getListaAktorea().tamaina()-1);
         ListaAktorea.getListaAktorea().AktoreakIdatzi();
         System.out.println("Denbora totala: " + timer.elapsedTime() + "s\n");
+        ListaPelikula.getListaPelikula().kideakAurkitu();
+        ListaPelikula.getListaPelikula().erlazionatuta("Eager to Die", "Eager to Die");
+        ListaPelikula.getListaPelikula().erlazionatuta("Mitologia do submundo", "Eager to Die");
+        ListaPelikula.getListaPelikula().erlazionatuta("Seconds", "Casino");
+       
     }    
 }

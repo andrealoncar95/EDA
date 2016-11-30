@@ -8,13 +8,16 @@ public class Pelikula {
 	// atributuak
 	private String izena;
 	private int kostua;
-	private UnorderedCircularLinkedList<Aktorea> listaAktore; 
+	private ArrayList<Aktorea> listaAktore; 
+	private  ArrayList<Pelikula> kideak;
+
 	
 	// eraikitzailea
 	public Pelikula(String pIzena) {
 		this.izena = pIzena;
 		this.kostua = 0;
-		listaAktore= new UnorderedCircularLinkedList<Aktorea>();
+		listaAktore= new ArrayList<Aktorea>();
+		this.kideak=new ArrayList<Pelikula>();
 	}
 	
 	// getters & setters
@@ -30,7 +33,7 @@ public class Pelikula {
 		this.izena = izena;
 	}
 	
-	public UnorderedCircularLinkedList<Aktorea> getAktoreLista() {
+	public ArrayList<Aktorea> getAktoreLista() {
 		return this.listaAktore;
 	}
 	
@@ -44,7 +47,7 @@ public class Pelikula {
 	}
 	
 	public void gehituAktorea(Aktorea akt) {
-		listaAktore.addToRear(akt);
+		listaAktore.add(akt);
 	}
 	
 	public void ezabatuAktorea(Aktorea akt) {
@@ -78,6 +81,15 @@ public class Pelikula {
 	public void DiruaGehitu(int kantitatea){
     		this.kostua=kantitatea+ this.kostua;
     }
+
+	public void kideaGehitu(Pelikula p) {
+			this.kideak.add(p);
+		
+	}
+
+	public ArrayList<Pelikula> getKideak() {
+		return this.kideak;
+	}
 	
 
 }

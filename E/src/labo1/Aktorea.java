@@ -24,6 +24,10 @@ public class Aktorea {
 	public ArrayList<Pelikula> getPelikulaLista() {
 		return this.listaPelikula;
 	}
+	
+	public int pelikulaKopurua(){
+		return this.listaPelikula.size();
+	}
 
 	public Iterator<Pelikula> getIteradorea() {
 		return this.listaPelikula.iterator();
