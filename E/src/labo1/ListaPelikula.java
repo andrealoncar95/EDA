@@ -124,129 +124,118 @@ public class ListaPelikula {
 	public int tamaina() {
 		return this.lista.size();
 	}
-	
+
 	public void kideakAurkitu(){
-        //PostBaldintza:Aktore bakoitzari berarekin Pelikula ezberdinetan lan egin duten kideen zerrenda sortuko du "kideak" izenekoa.
-		HashMap<String,Pelikula> ht;//Aktorearekin lan egin duten aktoreak ez errepikatzeko
-        int l=ListaPelikula.getListaPelikula().lista.size();
-        int m;
-        int n;
-        for(int i=0;i<l;i++){//Aktore guztietatik pasatzeko
-            ht=new HashMap<String,Pelikula>();//Aktore bakoitzeko HashMap berria
-            Pelikula p=ListaPelikula.getListaPelikula().lista.get(i);
-            ht.put(p.getIzena(),p);//aktorearen kideen artean bere burua ager ez dadin
-            m=p.getAktoreLista().size();
-            for(int k=0;k<m;k++){//Aktore bakoitzaren pelikula guztietatik pasatzeko
-                Aktorea ak=p.getAktoreLista().get(k);
-                n=ak.pelikulaKopurua();
-                for(int j=0;j<n;j++){//Pelikula bakoitzeko aktore guztietatik pasatzeko
-                    Pelikula current=ak.getPelikulaLista().get(j);
-                    if(!ht.containsKey(current.getIzena())){//Aktorearen Pelikula bateko aktoreak kideen
-                                                                //zerrendan ez badaude begiratzen du
-                        ht.put(current.getIzena(),current);//Kide berria hasMap-ean gorde bere helbidearekin
-                        p.kideaGehitu(current);//Oraindik AKtorearen kideen zerrenda ezdagoenez zerrendan gehitu
-                    }
-                }
-            }
-        }
-        //Kostua:ListaAktoreko aktore guztietatik(n), aktore bakoitzaren pelikula guztietatik(m), 
-                //eta pelikula bakoitzaren aktore guztietatik(p) pasatu behar denez kostu maximoa n*m*p da:O(n*m*p)
-    }
+		HashMap<String,Pelikula> ht;
+		int l=ListaPelikula.getListaPelikula().lista.size();
+		int m;
+		int n;
+		for(int i=0;i<l;i++){
+			ht=new HashMap<String,Pelikula>();
+			Pelikula p=ListaPelikula.getListaPelikula().lista.get(i);
+			ht.put(p.getIzena(),p);
+			m=p.getAktoreLista().size();
+			for(int k=0;k<m;k++){
+				Aktorea ak=p.getAktoreLista().get(k);
+				n=ak.pelikulaKopurua();
+				for(int j=0;j<n;j++){
+					Pelikula current=ak.getPelikulaLista().get(j);
+					if(!ht.containsKey(current.getIzena())){
+						ht.put(current.getIzena(),current);
+						p.kideaGehitu(current);
+					}
+				}
+			}
+		}
+
+	}
 
 	public boolean erlazionatuta(String p1,String p2){
-		//AurreBaldintza:String motako bi elementu
-		//PostBaldintza:Elementuetariko bat listan ez badago edo beraien artean erlaziorik ez badago false bueltatuko du.
-		//Erlazioa baldin badago true
 		Pelikula unekoa=this.bilatuPelikula(p1);
 		boolean badago=false;
 		HashMap<String,String> ht=new HashMap<String,String>();
 		if(ListaPelikula.getListaPelikula().bilatuPelikula(p1)==null ||
-				ListaPelikula.getListaPelikula().bilatuPelikula(p2)==null){//Bi elementuak listan badaude begiratzen da
+				ListaPelikula.getListaPelikula().bilatuPelikula(p2)==null){
 			System.out.println("Konparatu nahi diren elementuetariko bat ez dago listan!");
-			return false;}//Listan bi elementuetariko bat ez badago mezu bat pantailaratuko da eta false bueltatuko da
+			return false;}
 		else if(unekoa.getIzena().equals(p2) ){
 			System.out.println("Pelikula berdina ari zara bilatzen");
-			return true;}//Bi pelikulak berdinak badira mezu bat pantailaratuko da eta true bueltatuko da.
+			return true;}
 		else{
-			HashSet<String> bisitatuak=new HashSet<String>();//aztertu egin diren elementuak HashSet batean gordeko dira
-			Queue<Pelikula> aztGabeak=new LinkedList<Pelikula>();//aztertu ez diren pelikuleen zerrenda
+			HashSet<String> bisitatuak=new HashSet<String>();
+			Queue<Pelikula> aztGabeak=new LinkedList<Pelikula>();
 			aztGabeak.add(unekoa);
-			ht.put(unekoa.getIzena(),"");//uneko pelikula ez datorrelako beste pelikula batetik
-			bisitatuak.add(unekoa.getIzena());//uneko pelikula bisitatuak zerrendan gordeko da
+			ht.put(unekoa.getIzena(),"");
+			bisitatuak.add(unekoa.getIzena());
 
-			
-			while(!badago && !aztGabeak.isEmpty()){//erlazioa topatu ez den bitartean eta aztGabeak zerrenda hutsa ez den bitartean loop
-				unekoa=aztGabeak.remove();//aztGabeak zerrendako lehenengo elementua ateratzen da 
-				if(unekoa.getIzena().equals(p2) ){badago=true;}//unekoa eta p2 berdinak direnean erlazioa topatu da
+
+			while(!badago && !aztGabeak.isEmpty()){
+				unekoa=aztGabeak.remove(); 
+				if(unekoa.getIzena().equals(p2) ){badago=true;}
 				else{
 					int k=unekoa.getKideak().size();
-					for(int i=0;i<k;i++){//unekoa aktorearen kideak aztGabeak zerrendan zartuko dira
-						if(!bisitatuak.contains(unekoa.getKideak().get(i).getIzena())){//bisitatuen zerrendan ez dauden bitartean
-							aztGabeak.add(unekoa.getKideak().get(i));//unekoaren kideak aztertu gabeen zerrendan gordetzen dira
-							ht.put(unekoa.getKideak().get(i).getIzena(),unekoa.getIzena());//unekoaren kideak nondik datozen jakiteko(zein aktoretik) 
-							bisitatuak.add(unekoa.getKideak().get(i).getIzena());//uneko aktorea bisitatuak zerrendan gordeko da
+					for(int i=0;i<k;i++){
+						if(!bisitatuak.contains(unekoa.getKideak().get(i).getIzena())){
+							aztGabeak.add(unekoa.getKideak().get(i));
+							ht.put(unekoa.getKideak().get(i).getIzena(),unekoa.getIzena());
+							bisitatuak.add(unekoa.getKideak().get(i).getIzena());
 						}
 					}
 				}
 			}
 		}
 
-		if(badago){//Erlazioa topatu badugu nondik topatu dugun kalkulatzeko
+		if(badago){
 			ArrayList<String> lista=this.erlazionatuNondik(ht,p2);
 			inprimatu(lista);
 		}
 		return badago;
-		//Kostua:Kostu maximoa aktore guztietatik(n) pasatu behar izanez gero gertatuko da, eta aktore bakoitzaren kide guztiak(m)
-		//aztertu behar direla kontuan edukita kostu totala n*m: O(n*m)
+
 	}
 
 	private void inprimatu(ArrayList<String> lista) {
-		 //Post:Lista inprimatzen du.
-    	System.out.println("-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-");
-        System.out.println(lista.get(0)+" eta "+lista.get(lista.size()-1)+" pelikuleen arteko erlazioa hemendik dator:");
-    	System.out.println("==============================================================================================");
-        int count=0;
-        while(count<lista.size()-2){
-            System.out.println(lista.get(count)+"   "+lista.get(++count)+"   "+lista.get(++count));
-            }	
-		
+		//Post:Lista inprimatzen du.
+		System.out.println("-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-");
+		System.out.println(lista.get(0)+" eta "+lista.get(lista.size()-1)+" pelikuleen arteko erlazioa hemendik dator:");
+		System.out.println("==============================================================================================");
+		int count=0;
+		while(count<lista.size()-2){
+			System.out.println(lista.get(count)+"   "+lista.get(++count)+"   "+lista.get(++count));
+		}	
+
 	}
 
 	private ArrayList<String> erlazionatuNondik(HashMap<String, String> ht, String izen) {
-		//Post:Lista batean gordeko ditu aztertu nahi diren bi aktoreen erlazioak eta erlazio ahuek lotzen dituen pelikulak
-        ArrayList<String> lista=new ArrayList<String>();
-        String current=izen;
-        String aurreko="";
-        lista.add(current);//Lehenengo aktorea gordetzen da
-        while(!ht.get(current).equals("")){
-            aurreko=current;
-            current=ht.get(current);//aurreko aktorearen izena helbide moduan erabilita, zein aktorerekin duen erlazioa ikus daiteke
-            lista.add(bilatuBienPelikula(aurreko, current));//Bi aktoreak erlazionatzen dituen pelikula txertatu
-            lista.add(current);
-        }
-        return lista;
+		ArrayList<String> lista=new ArrayList<String>();
+		String current=izen;
+		String aurreko="";
+		lista.add(current);
+		while(!ht.get(current).equals("")){
+			aurreko=current;
+			current=ht.get(current);
+			lista.add(bilatuBienPelikula(aurreko, current));
+			lista.add(current);
+		}
+		return lista;
 	}
 
 	private String bilatuBienPelikula(String pel1, String pel2) {
-		 //Aurre:Bi aktoreak listan egon behar dira
-        //Post:Bi aktoreek pelikula batetan batera egin badute lan pelikularen izena bueltatuko du.
-        //Ez badute batera lan egin " " bueltatuko du.
-        String emaitza="";
-        Pelikula p1=this.bilatuPelikula(pel1);
-        Pelikula p2=this.bilatuPelikula(pel2);
-        Aktorea ak=null;
-        if(!pel2.equals("") && !pel1.equals("")){
-        Iterator<Aktorea> itr=p1.getAktoreLista().iterator();
-        while(itr.hasNext() && emaitza==""){//ak1 ten pelikulak banan banan pasatzen ditu
-            ak=itr.next();   
-            if(ak.getPelikulaLista().contains(p2)){//ak1en uneko pelikularen aktoreetariko bat ak2 den begiratzen du
-                emaitza=ak.getAbizenaIzena(); 
-            }
-        }
-        }
-        if (emaitza.equals("")){
-        	return "ez dute pelikularik amankomunean";
-        }else
-        return emaitza;
+		String emaitza="";
+		Pelikula p1=this.bilatuPelikula(pel1);
+		Pelikula p2=this.bilatuPelikula(pel2);
+		Aktorea ak=null;
+		if(!pel2.equals("") && !pel1.equals("")){
+			Iterator<Aktorea> itr=p1.getAktoreLista().iterator();
+			while(itr.hasNext() && emaitza==""){
+				ak=itr.next();   
+				if(ak.getPelikulaLista().contains(p2)){
+					emaitza=ak.getAbizenaIzena(); 
+				}
+			}
+		}
+		if (emaitza.equals("")){
+			return "ez dute pelikularik amankomunean";
+		}else
+			return emaitza;
 	}
 }
