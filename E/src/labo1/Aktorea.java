@@ -6,6 +6,7 @@ public class Aktorea {
 	//atributuak
 	private String abizenIzen;
 	private ArrayList<Pelikula> listaPelikula;
+	private double pR;
 
 	//metodoak
 	public Aktorea(String pAbizenIzen){
@@ -90,5 +91,9 @@ public class Aktorea {
 	
 	public int compareTo(Aktorea a) {
 		return this.abizenIzen.compareTo(a.abizenIzen);
+	}
+	
+	public double getpR(){
+		return pR;
 	}
 }

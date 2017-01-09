@@ -31,7 +31,7 @@ public class ListaPelikula {
 		}
 
 	}
-	private Iterator<Pelikula> getIteradorea() {
+	public Iterator<Pelikula> getIteradorea() {
 		return this.lista.iterator();
 	}
 
@@ -125,117 +125,4 @@ public class ListaPelikula {
 		return this.lista.size();
 	}
 
-	public void kideakAurkitu(){
-		HashMap<String,Pelikula> ht;
-		int l=ListaPelikula.getListaPelikula().lista.size();
-		int m;
-		int n;
-		for(int i=0;i<l;i++){
-			ht=new HashMap<String,Pelikula>();
-			Pelikula p=ListaPelikula.getListaPelikula().lista.get(i);
-			ht.put(p.getIzena(),p);
-			m=p.getAktoreLista().size();
-			for(int k=0;k<m;k++){
-				Aktorea ak=p.getAktoreLista().get(k);
-				n=ak.pelikulaKopurua();
-				for(int j=0;j<n;j++){
-					Pelikula current=ak.getPelikulaLista().get(j);
-					if(!ht.containsKey(current.getIzena())){
-						ht.put(current.getIzena(),current);
-						p.kideaGehitu(current);
-					}
-				}
-			}
-		}
-
-	}
-
-	public boolean erlazionatuta(String p1,String p2){
-		Pelikula unekoa=this.bilatuPelikula(p1);
-		boolean badago=false;
-		HashMap<String,String> ht=new HashMap<String,String>();
-		if(ListaPelikula.getListaPelikula().bilatuPelikula(p1)==null ||
-				ListaPelikula.getListaPelikula().bilatuPelikula(p2)==null){
-			System.out.println("Konparatu nahi diren elementuetariko bat ez dago listan!");
-			return false;}
-		else if(unekoa.getIzena().equals(p2) ){
-			System.out.println("Pelikula berdina ari zara bilatzen");
-			return true;}
-		else{
-			HashSet<String> bisitatuak=new HashSet<String>();
-			Queue<Pelikula> aztGabeak=new LinkedList<Pelikula>();
-			aztGabeak.add(unekoa);
-			ht.put(unekoa.getIzena(),"");
-			bisitatuak.add(unekoa.getIzena());
-
-
-			while(!badago && !aztGabeak.isEmpty()){
-				unekoa=aztGabeak.remove(); 
-				if(unekoa.getIzena().equals(p2) ){badago=true;}
-				else{
-					int k=unekoa.getKideak().size();
-					for(int i=0;i<k;i++){
-						if(!bisitatuak.contains(unekoa.getKideak().get(i).getIzena())){
-							aztGabeak.add(unekoa.getKideak().get(i));
-							ht.put(unekoa.getKideak().get(i).getIzena(),unekoa.getIzena());
-							bisitatuak.add(unekoa.getKideak().get(i).getIzena());
-						}
-					}
-				}
-			}
-		}
-
-		if(badago){
-			ArrayList<String> lista=this.erlazionatuNondik(ht,p2);
-			inprimatu(lista);
-		}
-		return badago;
-
-	}
-
-	private void inprimatu(ArrayList<String> lista) {
-		//Post:Lista inprimatzen du.
-		System.out.println("-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-~~-");
-		System.out.println(lista.get(0)+" eta "+lista.get(lista.size()-1)+" pelikuleen arteko erlazioa hemendik dator:");
-		System.out.println("==============================================================================================");
-		int count=0;
-		while(count<lista.size()-2){
-			System.out.println(lista.get(count)+"   "+lista.get(++count)+"   "+lista.get(++count));
-		}	
-
-	}
-
-	private ArrayList<String> erlazionatuNondik(HashMap<String, String> ht, String izen) {
-		ArrayList<String> lista=new ArrayList<String>();
-		String current=izen;
-		String aurreko="";
-		lista.add(current);
-		while(!ht.get(current).equals("")){
-			aurreko=current;
-			current=ht.get(current);
-			lista.add(bilatuBienPelikula(aurreko, current));
-			lista.add(current);
-		}
-		return lista;
-	}
-
-	private String bilatuBienPelikula(String pel1, String pel2) {
-		String emaitza="";
-		Pelikula p1=this.bilatuPelikula(pel1);
-		Pelikula p2=this.bilatuPelikula(pel2);
-		Aktorea ak=null;
-		if(!pel2.equals("") && !pel1.equals("")){
-			Iterator<Aktorea> itr=p1.getAktoreLista().iterator();
-			while(itr.hasNext() && emaitza==""){
-				ak=itr.next();   
-				if(ak.getPelikulaLista().contains(p2)){
-					emaitza=ak.getAbizenaIzena(); 
-				}
-			}
-		}
-		if (emaitza.equals("")){
-			return "ez dute pelikularik amankomunean";
-		}else
-			return emaitza;
-	}
 }

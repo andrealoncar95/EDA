@@ -9,7 +9,7 @@ public class Pelikula {
 	private String izena;
 	private int kostua;
 	private ArrayList<Aktorea> listaAktore; 
-	private  ArrayList<Pelikula> kideak;
+	private  double pR;
 
 	
 	// eraikitzailea
@@ -17,7 +17,6 @@ public class Pelikula {
 		this.izena = pIzena;
 		this.kostua = 0;
 		listaAktore= new ArrayList<Aktorea>();
-		this.kideak=new ArrayList<Pelikula>();
 	}
 	
 	// getters & setters
@@ -82,13 +81,9 @@ public class Pelikula {
     		this.kostua=kantitatea+ this.kostua;
     }
 
-	public void kideaGehitu(Pelikula p) {
-			this.kideak.add(p);
-		
-	}
 
-	public ArrayList<Pelikula> getKideak() {
-		return this.kideak;
+	public double getpR(){
+		return this.pR;
 	}
 	
 
