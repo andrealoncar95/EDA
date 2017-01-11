@@ -6,7 +6,8 @@ public class Aktorea {
 	//atributuak
 	private String abizenIzen;
 	private ArrayList<Pelikula> listaPelikula;
-	private double pR;
+	public double pageRank;
+	public int[][] path;
 
 	//metodoak
 	public Aktorea(String pAbizenIzen){
@@ -93,7 +94,11 @@ public class Aktorea {
 		return this.abizenIzen.compareTo(a.abizenIzen);
 	}
 	
-	public double getpR(){
-		return pR;
+	public double getPageRank(){
+		return pageRank;
+	}
+	
+	public int[][] getPath() {
+		return path;
 	}
 }
