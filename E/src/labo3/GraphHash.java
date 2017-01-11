@@ -1,12 +1,12 @@
-package lab3;
+package labo3;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-
 import labo1.Aktorea;
 import labo1.ListaPelikula;
 import labo1.Pelikula;
+import labo1.ListaAktorea;
 
 public class GraphHash {
 	HashMap<String, ArrayList<String>> g= new HashMap<String, ArrayList<String>>();
@@ -16,13 +16,14 @@ public class GraphHash {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static GraphHash getInstantzia(){
+	public static GraphHash getInstantzia() {
 		if (instantzia==null){
 			instantzia= new GraphHash();
 		}
 		return instantzia;
 	}
-	public void grafoaSortu(){
+	
+	public void grafoaSortu() {
 		Iterator<Pelikula> i= ListaPelikula.getListaPelikula().getIteradorea();
 		while(i.hasNext()){
 			Pelikula p= i.next();
@@ -50,12 +51,9 @@ public class GraphHash {
 						g.put(izena, pelikulaIzena);
 						kont++;
 					}
-				}
-					
-			}
-			
-		}
-		
+				}					
+			}			
+		}		
 	}
 
 	public void print(){
@@ -69,9 +67,11 @@ public class GraphHash {
 		}
 	}
 	
-	public void kalkulatuPageRank(){
-		
+	public HashMap<String,Double> pageRank(ListaAktorea listaAkt) {
+		// POST: Emaitza aktore zerrendaren aktore bakoitzaren PageRank algoritmoaren balioa da
 	}
-
+	
+	public ArrayList<String> pageRankOrdenatuta(HashMap<String,Double> mapaPR) {
+		// POST: Emaitza, PageRank balioa erabilita, beheruntz ordenaturiko zerrenda da
+	}	
 }
-

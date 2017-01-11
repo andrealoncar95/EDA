@@ -1,7 +1,7 @@
 package labo1;
-import java.io.IOException;
 
-import lab3.GraphHash;
+import java.io.IOException;
+import labo3.GraphHash;
 
 public class ProbaKasuak {
  
