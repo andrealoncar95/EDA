@@ -8,7 +8,7 @@ public class ProbaKasuak {
     private static StopWatch timer;
  
     public static void main(String[] args) throws IOException {
-    	timer= new StopWatch();
+        timer= new StopWatch();
         //Frogatzeko artxiboa duzun direktorioan jarri behar duzu
         ListaAktorea.getListaAktorea().reset();
         ListaPelikula.getListaPelikula().reset();
@@ -21,6 +21,6 @@ public class ProbaKasuak {
         System.out.println("Grafoaren tamaina " + GraphHash.getInstantzia().tamaina());
         //GraphHash.getInstantzia().print();
         GraphHash.getInstantzia().printPageRank();
-       
+        
     }    
 }

@@ -6,8 +6,7 @@ public class Aktorea {
 	//atributuak
 	private String abizenIzen;
 	private ArrayList<Pelikula> listaPelikula;
-	public double pageRank;
-	public int[][] path;
+	private Double pR;
 
 	//metodoak
 	public Aktorea(String pAbizenIzen){
@@ -82,23 +81,24 @@ public class Aktorea {
 		if (!(obj instanceof Aktorea))
 			return false;
 		Aktorea other = (Aktorea) obj;
-		if (this.abizenIzen==null) {
-			if (other.abizenIzen!=null)
+		if (this.pR==null) {
+			if (other.pR!=null)
 				return false;
-		} else if (!this.abizenIzen.equals(other.abizenIzen)) 
+		} else if (!this.pR.equals(other.pR)) 
 			return false;
 		return true;
 	} 
 	
 	public int compareTo(Aktorea a) {
-		return this.abizenIzen.compareTo(a.abizenIzen);
+		return this.pR.compareTo(a.pR);
 	}
 	
-	public double getPageRank(){
-		return pageRank;
+	public double getpR(){
+		return pR;
 	}
-	
-	public int[][] getPath() {
-		return path;
+
+	public void setPR(Double pr) {
+		this.pR=pr;
+		
 	}
 }
